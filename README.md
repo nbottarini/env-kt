@@ -79,3 +79,19 @@ Environment.addSearchPath('./myDir')
 ```
 
 Search paths must be configured before accessing any environment variable.
+
+## Usage in gradle files
+
+```kotlin
+buildscript {
+    dependencies {
+        classpath("com.nbottarini:asimov-environment:1.0")
+    }
+}
+
+Environment.addSearchPath(rootProject.projectDir.absolutePath)
+
+project.ext {
+    set("JDBC_URL", "jdbc:postgresql://${Environment["DB_HOST"]}:${Environment["DB_PORT"]}/${Environment["DB_NAME"]}")
+}
+```
