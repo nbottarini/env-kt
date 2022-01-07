@@ -15,7 +15,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.nbottarini:asimov-environment:1.0")
+    implementation("com.nbottarini:asimov-environment:1.0.1")
 }
 ```
 
@@ -27,7 +27,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.nbottarini:asimov-environment:1.0'
+    implementation 'com.nbottarini:asimov-environment:1.0.1'
 }
 ```
 
@@ -37,7 +37,7 @@ dependencies {
 <dependency>
     <groupId>com.nbottarini</groupId>
     <artifactId>asimov-environment</artifactId>
-    <version>1.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 
@@ -85,7 +85,7 @@ Search paths must be configured before accessing any environment variable.
 ```kotlin
 buildscript {
     dependencies {
-        classpath("com.nbottarini:asimov-environment:1.0")
+        classpath("com.nbottarini:asimov-environment:1.0.1")
     }
 }
 
