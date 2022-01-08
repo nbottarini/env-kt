@@ -15,7 +15,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.nbottarini:asimov-environment:2.0.2")
+    implementation("com.nbottarini:asimov-environment:2.0.0")
 }
 ```
 
