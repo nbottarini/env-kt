@@ -5,7 +5,7 @@ import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
 
-object Environment {
+object Env {
     private val searchPaths = mutableListOf<String>()
     private val dotenv by lazy {
         dotenv {
@@ -24,7 +24,7 @@ object Environment {
         return dotenv[name] ?: throw IllegalArgumentException("Missing environment variable $name")
     }
 
-    fun getAll() = dotenv.entries().map { EnvironmentVariable(it.key, it.value) }
+    fun getAll() = dotenv.entries().map { EnvVar(it.key, it.value) }
 
     private fun getPath(path: String) = Paths.get(path).toAbsolutePath().normalize()
 

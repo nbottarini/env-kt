@@ -11,7 +11,7 @@ val nexusUsername: String? by project
 val nexusPassword: String? by project
 
 group = "com.nbottarini"
-version = "1.0.1"
+version = "2.0.0"
 
 repositories {
     mavenCentral()

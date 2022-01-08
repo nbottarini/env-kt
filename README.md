@@ -15,7 +15,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.nbottarini:asimov-environment:1.0.1")
+    implementation("com.nbottarini:asimov-environment:2.0.2")
 }
 ```
 
@@ -27,7 +27,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.nbottarini:asimov-environment:1.0.1'
+    implementation 'com.nbottarini:asimov-environment:2.0.0'
 }
 ```
 
@@ -37,22 +37,22 @@ dependencies {
 <dependency>
     <groupId>com.nbottarini</groupId>
     <artifactId>asimov-environment</artifactId>
-    <version>1.0.1</version>
+    <version>2.0.0</version>
 </dependency>
 ```
 
 ## Usage
 
 ```kotlin
-val myEnvValue: String? = Environment["my-env-var"]
+val myEnvValue: String? = Env["my-env-var"]
 
-val myEnvValue: String? = Environment.get("my-env-var")
+val myEnvValue: String? = Env.get("my-env-var")
 
-val myEnvValue: String = Environment.get("my-env-var", "default value")
+val myEnvValue: String = Env.get("my-env-var", "default value")
 
-val myEnvValue: String = Environment.getOrThrow("my-env-var") // Throws IllegalArgumentException if env var is not present
+val myEnvValue: String = Env.getOrThrow("my-env-var") // Throws IllegalArgumentException if env var is not present
 
-val allEnvVars = Environment.getAll()
+val allEnvVars = Env.getAll()
 ```
 
 ### .env
@@ -75,7 +75,7 @@ By default, the library tries to find the .env file in the working dir and in th
 You can specify additional directories to search:
 
 ```kotlin
-Environment.addSearchPath('./myDir')
+Env.addSearchPath('./myDir')
 ```
 
 Search paths must be configured before accessing any environment variable.
@@ -85,13 +85,13 @@ Search paths must be configured before accessing any environment variable.
 ```kotlin
 buildscript {
     dependencies {
-        classpath("com.nbottarini:asimov-environment:1.0.1")
+        classpath("com.nbottarini:asimov-environment:2.0.0")
     }
 }
 
-Environment.addSearchPath(rootProject.projectDir.absolutePath)
+Env.addSearchPath(rootProject.projectDir.absolutePath)
 
 project.ext {
-    set("JDBC_URL", "jdbc:postgresql://${Environment["DB_HOST"]}:${Environment["DB_PORT"]}/${Environment["DB_NAME"]}")
+    set("JDBC_URL", "jdbc:postgresql://${Env["DB_HOST"]}:${Env["DB_PORT"]}/${Env["DB_NAME"]}")
 }
 ```
