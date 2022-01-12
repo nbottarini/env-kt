@@ -84,6 +84,7 @@ Search paths must be configured before accessing any environment variable.
 
 ```kotlin
 buildscript {
+    repositories { mavenCentral() }
     dependencies {
         classpath("com.nbottarini:asimov-environment:2.0.0")
     }
