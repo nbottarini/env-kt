@@ -73,8 +73,8 @@ mavenPublishing {
         }
 
         scm {
-            connection.set("scm:git:git://github.com/env-kt.git")
-            developerConnection.set("scm:git:ssh://github.com/env-kt.git")
+            connection.set("scm:git:git://github.com/nbottarini/env-kt.git")
+            developerConnection.set("scm:git:ssh://github.com/nbottarini/env-kt.git")
             url.set("https://github.com/nbottarini/env-kt")
         }
     }
