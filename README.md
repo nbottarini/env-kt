@@ -1,8 +1,8 @@
-[![Maven](https://img.shields.io/maven-central/v/com.nbottarini/asimov-environment.svg)](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.nbottarini%22%20AND%20a%3A%22asimov-environment%22)
+[![Maven](https://img.shields.io/maven-central/v/dev.botta/env.svg)](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22dev.botta%22%20AND%20a%3A%22env%22)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![CI Status](https://github.com/nbottarini/asimov-environment-kt/actions/workflows/gradle.yml/badge.svg?branch=main)](https://github.com/nbottarini/asimov-environment-kt/actions?query=branch%3Amain+workflow%3Aci)
+[![CI Status](https://github.com/nbottarini/env-kt/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/nbottarini/env-kt/actions?query=branch%3Amain+workflow%3Aci)
 
-# asimov/environment
+# env
 Tiny library to ease the use of environment variables with support for .env files.
 
 ## Installation
@@ -15,7 +15,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.nbottarini:asimov-environment:2.0.0")
+    implementation("dev.botta:env:2.0.0")
 }
 ```
 
@@ -27,7 +27,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.nbottarini:asimov-environment:2.0.0'
+    implementation 'dev.botta:env:2.0.0'
 }
 ```
 
@@ -35,8 +35,8 @@ dependencies {
 
 ```xml
 <dependency>
-    <groupId>com.nbottarini</groupId>
-    <artifactId>asimov-environment</artifactId>
+    <groupId>dev.botta</groupId>
+    <artifactId>env</artifactId>
     <version>2.0.0</version>
 </dependency>
 ```
@@ -86,7 +86,7 @@ Search paths must be configured before accessing any environment variable.
 buildscript {
     repositories { mavenCentral() }
     dependencies {
-        classpath("com.nbottarini:asimov-environment:2.0.0")
+        classpath("dev.botta:env:2.0.0")
     }
 }
 

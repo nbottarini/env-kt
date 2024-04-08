@@ -1,4 +1,4 @@
-package com.nbottarini.asimov.environment
+package dev.botta.env
 
 import io.github.cdimascio.dotenv.dotenv
 import java.nio.file.Files

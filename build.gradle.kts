@@ -1,16 +1,12 @@
+import com.vanniktech.maven.publish.SonatypeHost
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.6.10"
-    id("maven-publish")
-    id("signing")
-    id("io.github.gradle-nexus.publish-plugin") version "1.1.0"
+    kotlin("jvm") version "1.9.23"
+    id("com.vanniktech.maven.publish") version "0.28.0"
 }
 
-val nexusUsername: String? by project
-val nexusPassword: String? by project
-
-group = "com.nbottarini"
+group = "dev.botta"
 version = "2.0.0"
 
 repositories {
@@ -18,7 +14,7 @@ repositories {
 }
 
 dependencies {
-    implementation("io.github.cdimascio:dotenv-kotlin:6.2.2")
+    implementation("io.github.cdimascio:dotenv-kotlin:6.4.1")
 }
 
 tasks.withType<KotlinCompile> { kotlinOptions.jvmTarget = "1.8" }
@@ -35,8 +31,6 @@ kotlin {
 }
 
 java {
-    withJavadocJar()
-    withSourcesJar()
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
 
@@ -50,53 +44,38 @@ java {
     }
 }
 
-publishing {
-    publications {
-        create<MavenPublication>("maven") {
-            artifactId = "asimov-environment"
-            from(components["java"])
+mavenPublishing {
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL, automaticRelease = true)
+    signAllPublications()
+    coordinates("dev.botta", "env", "2.0.0")
 
-            pom {
-                name.set("Environment")
-                description.set("Tiny library to ease the use of environment variables with support for .env files")
-                url.set("https://github.com/nbottarini/asimov-environment-kt")
+    pom {
+        name.set("Env")
+        description.set("Tiny library to ease the use of environment variables with support for .env files")
+        inceptionYear.set("2022")
+        url.set("https://github.com/nbottarini/env-kt")
 
-                licenses {
-                    license {
-                        name.set("MIT License")
-                        url.set("http://www.opensource.org/licenses/mit-license.php")
-                    }
-                }
-
-                developers {
-                    developer {
-                        id.set("nbottarini")
-                        name.set("Nicolas Bottarini")
-                        email.set("nicolasbottarini@gmail.com")
-                    }
-                }
-
-                scm {
-                    connection.set("scm:git:git://github.com/asimov-environment-kt.git")
-                    developerConnection.set("scm:git:ssh://github.com/asimov-environment-kt.git")
-                    url.set("https://github.com/nbottarini/asimov-environment-kt")
-                }
+        licenses {
+            license {
+                name.set("MIT License")
+                url.set("http://www.opensource.org/licenses/mit-license.php")
+                distribution.set("http://www.opensource.org/licenses/mit-license.php")
             }
         }
-    }
-}
 
-nexusPublishing {
-    repositories {
-        sonatype {
-            nexusUrl.set(uri("https://s01.oss.sonatype.org/service/local/"))
-            snapshotRepositoryUrl.set(uri("https://s01.oss.sonatype.org/content/repositories/snapshots/"))
-            username.set(nexusUsername)
-            password.set(nexusPassword)
+        developers {
+            developer {
+                id.set("nbottarini")
+                name.set("Nicolas Bottarini")
+                url.set("https://github.com/nbottarini/")
+                email.set("nicolasbottarini@gmail.com")
+            }
+        }
+
+        scm {
+            connection.set("scm:git:git://github.com/env-kt.git")
+            developerConnection.set("scm:git:ssh://github.com/env-kt.git")
+            url.set("https://github.com/nbottarini/env-kt")
         }
     }
-}
-
-signing {
-    sign(publishing.publications["maven"])
 }

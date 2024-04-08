@@ -1,1 +1,1 @@
-rootProject.name = "environment"
+rootProject.name = "env"
